@@ -80,6 +80,9 @@ st.markdown("""
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
+        h1, h2, h3 {
+            color: #800000 !important;
+        }
         .stHeader {
             font-size: 2.5rem !important;
             font-weight: 600 !important;
@@ -91,13 +94,9 @@ st.markdown("""
             color: #800000 !important;
             margin-bottom: 2rem !important;
         }
-        div[data-testid="stHeader"] {
-            color: #800000 !important;
-        }
-        div[data-testid="stHeader"] h2 {
-            color: #800000 !important;
-        }
-        div[data-testid="stHeader"] h3 {
+        div[data-testid="stHeader"] h2,
+        div[data-testid="stHeader"] h3,
+        div[data-testid="stHeader"] div {
             color: #800000 !important;
         }
         .legend-note {
