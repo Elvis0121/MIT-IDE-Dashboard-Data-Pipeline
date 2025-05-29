@@ -83,7 +83,7 @@ st.markdown("""
         .stHeader {
             font-size: 2.5rem !important;
             font-weight: 600 !important;
-            color: #1E3A8A !important;
+            color: #800000 !important;
             margin-bottom: 1rem !important;
         }
         .stSubheader {
