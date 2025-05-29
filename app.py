@@ -88,7 +88,7 @@ st.markdown("""
         }
         .stSubheader {
             font-size: 1.5rem !important;
-            color: #4B5563 !important;
+            color: #800000 !important;
             margin-bottom: 2rem !important;
         }
         .legend-note {
@@ -182,12 +182,6 @@ def create_cumulative_chart(df, x_col, y_col, title, color=None, y_label=None):
     return fig
 
 # Create and display charts in a single column layout with centered content
-st.markdown("""
-    <div style="color: #4B5563; font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">
-        <strong>Note:</strong> RGL stands for Research Group Leads
-    </div>
-""", unsafe_allow_html=True)
-
 for header, chart_args in [
     ("Research Group Leads Publications", (rgl_publications, 'Year', 'Value', 'RGL Publications', '#1f77b4', "Publications")),
     ("Combined Publications Growth", (combined_publications, 'Year', 'Value', 'Total Publications', '#2ca02c', "Publications")),
@@ -199,6 +193,12 @@ for header, chart_args in [
     ("Resource Growth", (budget_data, 'Year', 'Budget (Millions)', 'Budget', '#bcbd22', "Budget (Millions)"))
 ]:
     st.header(header)
+    if header == "Research Group Leads Publications":
+        st.markdown("""
+            <div style="color: #4B5563; font-size: 1.1rem; margin-bottom: 1rem;">
+                <strong>Note:</strong> RGL stands for Research Group Leads
+            </div>
+        """, unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.plotly_chart(create_cumulative_chart(*chart_args), use_container_width=True)
