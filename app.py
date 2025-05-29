@@ -102,11 +102,6 @@ st.markdown("""
 
 # Title and description
 st.title("MIT IDE Growth Metrics Dashboard")
-st.markdown("""
-    <div class="legend-note">
-        Note: RGL stands for Research Group Leads
-    </div>
-""", unsafe_allow_html=True)
 
 # Function to create cumulative line chart
 def create_cumulative_chart(df, x_col, y_col, title, color=None, y_label=None):
@@ -173,9 +168,12 @@ def create_cumulative_chart(df, x_col, y_col, title, color=None, y_label=None):
         plot_bgcolor='rgba(0,0,0,0)',
         hovermode='x unified',
         hoverlabel=dict(
-            bgcolor="white",
-            font_size=12,
-            font_family="Arial"
+            bgcolor="rgba(255, 255, 255, 0.9)",
+            font_size=14,
+            font_family="Arial",
+            font_color="black",
+            bordercolor="black",
+            borderwidth=1
         )
     )
     
@@ -185,6 +183,12 @@ def create_cumulative_chart(df, x_col, y_col, title, color=None, y_label=None):
     return fig
 
 # Create and display charts in a single column layout with centered content
+st.markdown("""
+    <div style="color: #4B5563; font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">
+        <strong>Note:</strong> RGL stands for Research Group Leads
+    </div>
+""", unsafe_allow_html=True)
+
 for header, chart_args in [
     ("Research Group Leads Publications", (rgl_publications, 'Year', 'Value', 'RGL Publications', '#1f77b4', "Publications")),
     ("Combined Publications Growth", (combined_publications, 'Year', 'Value', 'Total Publications', '#2ca02c', "Publications")),
