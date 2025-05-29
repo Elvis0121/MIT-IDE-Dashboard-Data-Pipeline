@@ -168,12 +168,11 @@ def create_cumulative_chart(df, x_col, y_col, title, color=None, y_label=None):
         plot_bgcolor='rgba(0,0,0,0)',
         hovermode='x unified',
         hoverlabel=dict(
-            bgcolor="rgba(255, 255, 255, 0.9)",
+            bgcolor="rgba(255, 255, 255, 0.95)",
             font_size=14,
             font_family="Arial",
             font_color="black",
-            bordercolor="black",
-            borderwidth=1
+            bordercolor="black"
         )
     )
     
