@@ -1,8 +1,12 @@
 # MIT IDE Dashboard Data Pipeline
 
-A comprehensive data pipeline for the MIT Initiative on the Digital Economy (IDE) Dashboard. This project automates the collection and processing of data from various sources including LinkedIn, YouTube, Medium, Google Scholar, and Eventbrite.
+A comprehensive data pipeline and visualization dashboard for the MIT Initiative on the Digital Economy (IDE). This project automates the collection and processing of data from various sources including LinkedIn, YouTube, Medium, Google Scholar, and Eventbrite, and provides an interactive dashboard for data visualization.
 
 ## Overview
+
+The project consists of two main components:
+1. **Data Pipeline**: Collects and processes data from multiple platforms
+2. **Interactive Dashboard**: Visualizes the collected data using Streamlit
 
 The data pipeline is designed to:
 - Collect data from multiple platforms
@@ -10,6 +14,11 @@ The data pipeline is designed to:
 - Store the data in Google Sheets
 - Schedule regular updates
 - Provide error handling and logging
+
+The dashboard provides:
+- Interactive visualizations of key metrics
+- Real-time data updates
+- User-friendly interface for exploring IDE's impact
 
 ## Features
 
@@ -56,6 +65,7 @@ MIT_IDE_COMPANY_ID=your_linkedin_company_id
 
 ```
 mit-ide-dashboard/
+├── app.py                 # Streamlit dashboard application
 ├── data_pipeline/
 │   ├── __init__.py
 │   ├── data_updater.py
@@ -78,6 +88,7 @@ mit-ide-dashboard/
 
 ## Usage
 
+### Running the Data Pipeline
 1. Run the data pipeline:
 ```bash
 python -m data_pipeline.data_updater
@@ -87,6 +98,21 @@ python -m data_pipeline.data_updater
    - Initialize all data fetchers
    - Run an initial data update
    - Schedule quarterly updates
+
+### Running the Dashboard
+1. Start the Streamlit dashboard:
+```bash
+streamlit run app.py
+```
+
+2. The dashboard will:
+   - Load the latest data from Google Sheets
+   - Display interactive visualizations
+   - Update automatically when new data is available
+
+The dashboard is accessible at:
+- Local URL: http://localhost:8501
+- Network URL: http://your-ip:8501
 
 ## Data Sources
 
