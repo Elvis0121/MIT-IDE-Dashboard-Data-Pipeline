@@ -80,16 +80,19 @@ st.markdown("""
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
-        h1 {
-            color: #1E3A8A !important;
+        .stHeader {
             font-size: 2.5rem !important;
             font-weight: 600 !important;
+            color: #1E3A8A !important;
             margin-bottom: 1rem !important;
         }
-        h2 {
-            color: #800000 !important;
+        .stSubheader {
             font-size: 1.5rem !important;
+            color: #800000 !important;
             margin-bottom: 2rem !important;
+        }
+        div[data-testid="stHeader"] {
+            color: #800000 !important;
         }
         .legend-note {
             font-size: 0.9rem;
