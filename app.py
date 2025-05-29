@@ -93,7 +93,7 @@ st.markdown("""
         }
         .element-container h2,
         .element-container h3 {
-            color: #800000 !important;
+            color: white !important;
         }
         .legend-note {
             font-size: 0.9rem;
