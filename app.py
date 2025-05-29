@@ -154,12 +154,14 @@ def create_cumulative_chart(df, x_col, y_col, title, color=None, y_label=None):
 
 # Create and display charts in a single column layout with centered content
 for header, chart_args in [
-    ("Publications Growth", (combined_publications, 'Year', 'Value', 'Total Publications', '#1f77b4', "Publications")),
-    ("Citations Growth", (combined_citations, 'Year', 'Value', 'Total Citations', '#2ca02c', "Citations")),
-    ("Content Engagement Growth", (youtube_data, 'Years', 'Views', 'YouTube Views', '#d62728', "Views")),
-    ("Medium Engagement Growth", (medium_data, 'Years', 'Claps', 'Medium Claps', '#ff7f0e', "Claps")),
-    ("Community Growth", (eventbrite_data, 'Year', 'Total Attendees', 'Event Attendees', '#9467bd', "Attendees")),
-    ("Resource Growth", (budget_data, 'Year', 'Budget (Millions)', 'Budget', '#e377c2', "Budget (Millions)"))
+    ("Research Group Leads Publications", (rgl_publications, 'Year', 'Value', 'RGL Publications', '#1f77b4', "Publications")),
+    ("Combined Publications Growth", (combined_publications, 'Year', 'Value', 'Total Publications', '#2ca02c', "Publications")),
+    ("Research Group Leads Citations", (rgl_citations, 'Year', 'Value', 'RGL Citations', '#d62728', "Citations")),
+    ("Combined Citations Growth", (combined_citations, 'Year', 'Value', 'Total Citations', '#ff7f0e', "Citations")),
+    ("Content Engagement Growth", (youtube_data, 'Years', 'Views', 'YouTube Views', '#9467bd', "Views")),
+    ("Medium Engagement Growth", (medium_data, 'Years', 'Claps', 'Medium Claps', '#e377c2', "Claps")),
+    ("Community Growth", (eventbrite_data, 'Year', 'Total Attendees', 'Event Attendees', '#7f7f7f', "Attendees")),
+    ("Resource Growth", (budget_data, 'Year', 'Budget (Millions)', 'Budget', '#bcbd22', "Budget (Millions)"))
 ]:
     st.header(header)
     col1, col2, col3 = st.columns([1, 2, 1])
