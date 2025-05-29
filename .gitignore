@@ -1,10 +1,14 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-env/
 build/
 develop-eggs/
 dist/
@@ -23,7 +27,9 @@ wheels/
 
 # Virtual Environment
 venv/
+env/
 ENV/
+.venv/
 
 # IDE
 .idea/
@@ -40,8 +46,30 @@ ENV/
 ehthumbs.db
 Thumbs.db
 
+# Logs
+*.log
+logs/
+data_update.log
+
+# Credentials
+cloud_credentials.json
+*credentials*.json
+*_credentials*.json
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
 # Project specific
 *.csv
 *.xlsx
 *.xls
-*.log 
+
+# Jupyter Notebook
+.ipynb_checkpoints
