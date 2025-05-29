@@ -94,6 +94,12 @@ st.markdown("""
         div[data-testid="stHeader"] {
             color: #800000 !important;
         }
+        div[data-testid="stHeader"] h2 {
+            color: #800000 !important;
+        }
+        div[data-testid="stHeader"] h3 {
+            color: #800000 !important;
+        }
         .legend-note {
             font-size: 0.9rem;
             color: #6B7280;
