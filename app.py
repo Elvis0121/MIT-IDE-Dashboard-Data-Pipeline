@@ -72,7 +72,7 @@ def load_data():
 # Set page config
 st.set_page_config(layout="wide")
 
-# Custom CSS to control the width of the main content
+# Custom CSS to control the width and styling
 st.markdown("""
     <style>
         .main .block-container {
@@ -80,11 +80,33 @@ st.markdown("""
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
+        .stHeader {
+            font-size: 2.5rem !important;
+            font-weight: 600 !important;
+            color: #1E3A8A !important;
+            margin-bottom: 1rem !important;
+        }
+        .stSubheader {
+            font-size: 1.5rem !important;
+            color: #4B5563 !important;
+            margin-bottom: 2rem !important;
+        }
+        .legend-note {
+            font-size: 0.9rem;
+            color: #6B7280;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
     </style>
 """, unsafe_allow_html=True)
 
-# Title
+# Title and description
 st.title("MIT IDE Growth Metrics Dashboard")
+st.markdown("""
+    <div class="legend-note">
+        Note: RGL stands for Research Group Leads
+    </div>
+""", unsafe_allow_html=True)
 
 # Function to create cumulative line chart
 def create_cumulative_chart(df, x_col, y_col, title, color=None, y_label=None):
@@ -95,6 +117,8 @@ def create_cumulative_chart(df, x_col, y_col, title, color=None, y_label=None):
     # Convert x values to integers if they're years
     if x_col in ['Year', 'Years']:
         df_cum[x_col] = df_cum[x_col].astype(int)
+        # Filter to start from 2020
+        df_cum = df_cum[df_cum[x_col] >= 2020]
     
     fig = go.Figure()
     fig.add_trace(go.Scatter(
@@ -103,7 +127,7 @@ def create_cumulative_chart(df, x_col, y_col, title, color=None, y_label=None):
         mode='lines+markers',
         name=title,
         line=dict(width=3),
-        marker=dict(size=8)
+        marker=dict(size=8, symbol='circle')
     ))
     
     fig.update_layout(
@@ -113,7 +137,7 @@ def create_cumulative_chart(df, x_col, y_col, title, color=None, y_label=None):
             y=0.95,
             xanchor='center',
             yanchor='top',
-            font=dict(size=20)
+            font=dict(size=20, color='#1E3A8A')
         ),
         showlegend=True,
         legend=dict(
@@ -122,7 +146,7 @@ def create_cumulative_chart(df, x_col, y_col, title, color=None, y_label=None):
             xanchor="center",
             x=0.5,
             orientation="h",
-            font=dict(size=12)
+            font=dict(size=12, color='#4B5563')
         ),
         height=700,
         margin=dict(l=50, r=50, t=80, b=30),
@@ -134,19 +158,25 @@ def create_cumulative_chart(df, x_col, y_col, title, color=None, y_label=None):
             tickmode='linear',
             tick0=df_cum[x_col].min(),
             dtick=1,
-            title_font=dict(size=14),
-            tickfont=dict(size=12)
+            title_font=dict(size=14, color='#4B5563'),
+            tickfont=dict(size=12, color='#4B5563')
         ),
         yaxis=dict(
             showgrid=True, 
             gridwidth=1, 
             gridcolor='rgba(128, 128, 128, 0.2)',
             title=y_label or "Count",
-            title_font=dict(size=14),
-            tickfont=dict(size=12)
+            title_font=dict(size=14, color='#4B5563'),
+            tickfont=dict(size=12, color='#4B5563')
         ),
         paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0)'
+        plot_bgcolor='rgba(0,0,0,0)',
+        hovermode='x unified',
+        hoverlabel=dict(
+            bgcolor="white",
+            font_size=12,
+            font_family="Arial"
+        )
     )
     
     if color:
