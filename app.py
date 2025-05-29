@@ -91,13 +91,8 @@ st.markdown("""
             color: #800000 !important;
             margin-bottom: 2rem !important;
         }
-        div[data-testid="stHeader"] {
-            color: #800000 !important;
-        }
-        div[data-testid="stHeader"] h2 {
-            color: #800000 !important;
-        }
-        div[data-testid="stHeader"] h3 {
+        .element-container h2,
+        .element-container h3 {
             color: #800000 !important;
         }
         .legend-note {
