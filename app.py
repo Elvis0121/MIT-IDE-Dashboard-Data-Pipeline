@@ -147,7 +147,8 @@ def create_cumulative_chart(df, x_col, y_col, title, color=None, y_label=None):
             orientation="h",
             font=dict(size=12, color='#4B5563')
         ),
-        height=700,
+        height=None,  # Remove fixed height
+        autosize=True,  # Enable autosize
         margin=dict(l=50, r=50, t=80, b=30),
         xaxis=dict(
             showgrid=True, 
@@ -203,7 +204,5 @@ for header, chart_args in [
                 <strong>Note:</strong> RGL stands for Research Group Leads
             </div>
         """, unsafe_allow_html=True)
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        st.plotly_chart(create_cumulative_chart(*chart_args), use_container_width=True)
+    st.plotly_chart(create_cumulative_chart(*chart_args), use_container_width=True)
     st.markdown("---")  # Add a separator between charts
