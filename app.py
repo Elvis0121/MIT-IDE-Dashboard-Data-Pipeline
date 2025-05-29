@@ -74,7 +74,7 @@ st.set_page_config(layout="wide")
 st.markdown("""
     <style>
         .main .block-container {
-            max-width: 1200px;
+            max-width: 900px;
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
@@ -122,8 +122,8 @@ def create_cumulative_chart(df, x_col, y_col, title, color=None, y_label=None):
             orientation="h",
             font=dict(size=12)
         ),
-        height=450,
-        margin=dict(l=50, r=50, t=80, b=50),
+        height=800,
+        margin=dict(l=50, r=50, t=80, b=30),
         xaxis=dict(
             showgrid=True, 
             gridwidth=1, 
