@@ -80,15 +80,15 @@ st.markdown("""
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
-        .stHeader {
+        h1 {
+            color: #800000 !important;
             font-size: 2.5rem !important;
             font-weight: 600 !important;
-            color: #800000 !important;
             margin-bottom: 1rem !important;
         }
-        .stSubheader {
-            font-size: 1.5rem !important;
+        h2 {
             color: #800000 !important;
+            font-size: 1.5rem !important;
             margin-bottom: 2rem !important;
         }
         .legend-note {
