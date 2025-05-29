@@ -58,12 +58,14 @@ def load_data():
         'Budget (Millions)': [2.59, 2.44, 3.95, 3.85, 3.53, 4.63]
     })
 
-    return (combined_publications, combined_citations,
+    return (rgl_publications, or_publications, combined_publications,
+            rgl_citations, or_citations, combined_citations,
             youtube_data, medium_data, eventbrite_data,
             budget_data)
 
 # Load data
-(combined_publications, combined_citations,
+(rgl_publications, or_publications, combined_publications,
+ rgl_citations, or_citations, combined_citations,
  youtube_data, medium_data, eventbrite_data,
  budget_data) = load_data()
 
