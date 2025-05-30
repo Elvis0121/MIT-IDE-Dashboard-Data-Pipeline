@@ -131,7 +131,7 @@ def create_cumulative_chart(df, x_col, y_col, title, color=None, y_label=None):
     
     fig.update_layout(
         title=dict(
-            text=title,
+            text=f"Cumulative {title}",
             x=0.5,
             y=0.95,
             xanchor='center',
@@ -181,21 +181,23 @@ def create_cumulative_chart(df, x_col, y_col, title, color=None, y_label=None):
         )
     )
     
-    if color:
-        fig.update_traces(line_color=color)
+    # Use MIT red color (#A31F34) if no color is specified
+    if color is None:
+        color = '#A31F34'
+    fig.update_traces(line_color=color)
     
     return fig
 
 # Create and display charts in a single column layout with centered content
 for header, chart_args in [
-    ("Research Group Leads Publications", (rgl_publications, 'Year', 'Value', 'RGL Publications', '#1f77b4', "Publications")),
-    ("Combined Publications Growth", (combined_publications, 'Year', 'Value', 'Total Publications', '#2ca02c', "Publications")),
-    ("Research Group Leads Citations", (rgl_citations, 'Year', 'Value', 'RGL Citations', '#d62728', "Citations")),
-    ("Combined Citations Growth", (combined_citations, 'Year', 'Value', 'Total Citations', '#ff7f0e', "Citations")),
-    ("Content Engagement Growth", (youtube_data, 'Years', 'Views', 'YouTube Views', '#9467bd', "Views")),
-    ("Medium Engagement Growth", (medium_data, 'Years', 'Claps', 'Medium Claps', '#e377c2', "Claps")),
-    ("Community Growth", (eventbrite_data, 'Year', 'Total Attendees', 'Event Attendees', '#7f7f7f', "Attendees")),
-    ("Resource Growth", (budget_data, 'Year', 'Budget (Millions)', 'Budget', '#bcbd22', "Budget (Millions)"))
+    ("Research Group Leads Publications", (rgl_publications, 'Year', 'Value', 'RGL Publications', '#A31F34', "Publications")),
+    ("Combined Publications Growth", (combined_publications, 'Year', 'Value', 'Total Publications', '#A31F34', "Publications")),
+    ("Research Group Leads Citations", (rgl_citations, 'Year', 'Value', 'RGL Citations', '#A31F34', "Citations")),
+    ("Combined Citations Growth", (combined_citations, 'Year', 'Value', 'Total Citations', '#A31F34', "Citations")),
+    ("Content Engagement Growth", (youtube_data, 'Years', 'Views', 'YouTube Views', '#A31F34', "Views")),
+    ("Medium Engagement Growth", (medium_data, 'Years', 'Claps', 'Medium Claps', '#A31F34', "Claps")),
+    ("Community Growth", (eventbrite_data, 'Year', 'Total Attendees', 'Event Attendees', '#A31F34', "Attendees")),
+    ("Resource Growth", (budget_data, 'Year', 'Budget (Millions)', 'Budget', '#A31F34', "Budget (Millions)"))
 ]:
     st.header(header)
     if header == "Research Group Leads Publications":
